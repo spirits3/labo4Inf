@@ -36,5 +36,5 @@ int main() {
 
 	cout << "4. contenu: " << cListProduit << endl << endl;
 
-	return EXIT_SUCCES;
+	return EXIT_SUCCESS;
 }
