@@ -20,7 +20,7 @@ public:
     void vider();
     size_t taille() const;
     T& get(size_t indice);
-    Collection& parcourir(T operation);
+    void parcourir(T operation);
 
     bool contient(T);
 

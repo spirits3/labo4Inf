@@ -32,13 +32,6 @@ void Collection<T,Conteneur>::parcourir(T predicat) {
 	}
 }
 
-template <typename T, template<typename, typename> class Conteneur>
-Collection<T,Conteneur>& Collection<T,Conteneur>::parcourir(T operation) {
-	for(auto i = cont.begin(); i != cont.end(); ++i) {
-
-	}
-}
-
 template <typename T, template<typename,typename> class Conteneur>
 bool Collection<T,Conteneur>::contient(T valeur) {
 	for(auto i = cont.begin(); i != cont.end(); ++i) {
