@@ -6,6 +6,9 @@
 
 using namespace std;
 
+/*template<typename T, typename P, template<typename,typename> class Conteneur>
+class Collection {};*/
+
 template<typename T, template <typename, typename> class Conteneur>
 class Collection {
     
@@ -17,13 +20,12 @@ public:
     void vider();
     size_t taille() const;
     T& get(size_t indice);
-    Collection& parcourir(T);
+    Collection& parcourir(T operation);
+
     bool contient(T);
 
 private:
     Conteneur<T, allocator<T> > cont;
-
-
 };
 
 #include "collection_imp.h"
