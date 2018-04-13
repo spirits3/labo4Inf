@@ -6,7 +6,7 @@
 
 using namespace std;
 
-template<typename T, template <typename, typename> class CONTENEUR>
+template<typename T, template <typename, typename> class Conteneur>
 class Collection {
     
     friend std::ostream& operator<<(std::ostream&, const Collection&);
@@ -17,11 +17,12 @@ public:
     void vider();
     size_t taille() const;
     T& get(size_t indice);
-    //CONTENEUR parcourir(T);
-    //bool contient(T);
+    Collection& parcourir(T);
+    bool contient(T);
 
 private:
-    CONTENEUR<T, allocator<T> > cont;
+    Conteneur<T, allocator<T> > cont;
+
 
 };
 

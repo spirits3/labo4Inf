@@ -7,6 +7,7 @@
 using namespace std;
 
 int main() {
+	
 	Collection<int, vector> cVectorInt;
 	
 	for (int i = 1; i <= 3; ++i)
@@ -20,7 +21,7 @@ int main() {
 	cVectorInt.vider();
 
 	cout << "4. contenu: " << cVectorInt << endl << endl;
-
+/*
 	Collection<Produit, list> cListProduit;
 
 	// un produit se caractérise par un no, un libellé, un prix
@@ -34,7 +35,7 @@ int main() {
 
 	cListProduit.vider();
 
-	cout << "4. contenu: " << cListProduit << endl << endl;
+	cout << "4. contenu: " << cListProduit << endl << endl;*/
 
 	return EXIT_SUCCESS;
 }
