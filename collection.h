@@ -6,14 +6,16 @@
 
 using namespace std;
 
-/*template<typename T, typename P, template<typename,typename> class Conteneur>
-class Collection {};*/
+template <typename T, template <typename, typename> class Conteneur>
+class Collection;
+
+template<typename T, template<typename, typename> class Conteneur>
+std::ostream& operator << (std::ostream&, const Collection<T, Conteneur>&);
 
 template<typename T, template <typename, typename> class Conteneur>
 class Collection {
     
-    friend std::ostream& operator<<(std::ostream&, const Collection&);
-
+    friend std::ostream& operator << <>(std::ostream&, const Collection&);
 public:
     Collection();
     void ajouter(T&);
@@ -25,7 +27,7 @@ public:
     bool contient(T);
 
 private:
-    Conteneur<T, allocator<T> > cont;
+    Conteneur<T, allocator<T>> cont;
 };
 
 #include "collection_imp.h"

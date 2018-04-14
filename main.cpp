@@ -21,7 +21,7 @@ int main() {
 	cVectorInt.vider();
 
 	cout << "4. contenu: " << cVectorInt << endl << endl;
-/*
+
 	Collection<Produit, list> cListProduit;
 
 	// un produit se caractérise par un no, un libellé, un prix
@@ -35,7 +35,21 @@ int main() {
 
 	cListProduit.vider();
 
-	cout << "4. contenu: " << cListProduit << endl << endl;*/
+	cout << "4. contenu: " << cListProduit << endl << endl;
+
+
+	Produit cible = {1, "Produit 1", 1.5};
+
+	Produit cible2 = {1, "Produit 1", 1.8};
+
+	cout << boolalpha << "Est ce que notre liste contient l'élement {1, \"Produit 1\", 1,5}: "
+		 << cListProduit.contient(cible) << endl;
+
+
+	cout << boolalpha << "Est ce que notre liste contient l'élement {1, \"Produit 1\", 1,8}: "
+		 << cListProduit.contient(cible) << endl;
+
+	cout << "Majoration des prix de 10%";
 
 	return EXIT_SUCCESS;
 }

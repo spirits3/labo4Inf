@@ -35,9 +35,22 @@ void Collection<T,Conteneur>::parcourir(T predicat) {
 template <typename T, template<typename,typename> class Conteneur>
 bool Collection<T,Conteneur>::contient(T valeur) {
 	for(auto i = cont.begin(); i != cont.end(); ++i) {
-		if(cont[i] == valeur) {
+		if(*i == valeur) {
 			return true;
 		}
 	}
 	return false;
+}
+
+
+template<typename T, template<typename, typename> class Conteneur>
+std::ostream& operator << (std::ostream& os, const Collection<T, Conteneur>& collection) {
+	os << "[";
+
+	for(auto i = collection.cont.begin(); i != collection.cont.end(); ++i) {
+		os << *i << ",";
+	}
+
+	os << "]";
+	return os;
 }
