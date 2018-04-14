@@ -20,9 +20,11 @@ size_t Collection<T, Conteneur>::taille() const {
     return cont.size();
 }
 
-template <typename T, template<typename, typename> class Conteneur>
-T& Collection<T, Conteneur>::get(size_t indice){
-    return cont.at(indice);
+template<typename T, template <typename, typename> class CONTENEUR>
+T& Collection<T, CONTENEUR>::get(size_t indice){
+    auto b = cont.begin();
+    for(int i = 0; i < indice ; ++i, ++b);
+    return *b;
 }
 
 template<typename T, template<typename, typename> class Conteneur>
