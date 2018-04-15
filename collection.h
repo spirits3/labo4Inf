@@ -18,12 +18,13 @@ class Collection {
     friend std::ostream& operator << <>(std::ostream&, const Collection&);
 public:
     Collection();
-    void ajouter(T&);
+    void ajouter(T);
     void vider();
     size_t taille() const;
     T& get(size_t indice);
-    void parcourir(T operation);
 
+    template<typename F>
+    Collection& parcourir(const F&);
     bool contient(T);
 
 private:

@@ -47,9 +47,11 @@ int main() {
 
 
 	cout << boolalpha << "Est ce que notre liste contient l'élement {1, \"Produit 1\", 1,8}: "
-		 << cListProduit.contient(cible) << endl;
+		 << cListProduit.contient(cible2) << endl;
 
-	cout << "Majoration des prix de 10%";
+	cout << "Majoration des prix de 10% de cListProduit : "
+		 << cListProduit.parcourir([] (Produit& p) { p.setPrix(p.getPrix() * 1.1); });
+
 
 	return EXIT_SUCCESS;
 }

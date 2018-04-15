@@ -24,9 +24,10 @@
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
-#include "Produit.h"
 #include <ostream>
 #include <string>
+
+#include "produit.h"
 
 using namespace std;
 
@@ -58,7 +59,7 @@ bool operator!=(const Produit& lhs, const Produit& rhs) {
     return !(lhs == rhs);
 }
 
-Produit::Produit(unsigned int no, std::string nom, double prix) : no(no), nom(nom), prix(prix) {
+Produit::Produit(unsigned int no, const std::string nom, double prix) : no(no), nom(nom), prix(prix) {
 }
 
 Produit& Produit::operator+=(double rhs) {
@@ -79,4 +80,28 @@ Produit& Produit::operator*=(double rhs) {
 Produit& Produit::operator/=(double rhs) {
     prix /= rhs;
     return *this;
+}
+
+unsigned int Produit::getNo() const{
+    return no;
+}
+
+const std::string& Produit::getNom() const{
+    return nom;
+}
+
+double Produit::getPrix() const {
+    return prix;
+}
+
+void Produit::setNo(unsigned int no) {
+    this->no = no;
+}
+
+void Produit::setNom(const std::string& nom) {
+    this->nom = nom;
+}
+ 
+void Produit::setPrix(double prix) {
+    this->prix = prix;
 }

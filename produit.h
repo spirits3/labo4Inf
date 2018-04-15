@@ -26,11 +26,12 @@
  */
 #ifndef PRODUIT_H
 #define PRODUIT_H
-#include <string>
+
 #include <ostream>
+#include <string>
 
 class Produit {
-    friend std::ostream& operator<<(std::ostream& lhs, Produit rhs);
+    friend std::ostream& operator<<(std::ostream& lhs, const Produit rhs);
     friend Produit operator+(Produit lhs, const double& rhs);
     friend Produit operator-(Produit lhs, const double& rhs);
     friend Produit operator*(Produit lhs, const double& rhs);
@@ -40,11 +41,19 @@ class Produit {
 
 public:
 
-    Produit(unsigned int no, std::string nom, double prix);
+    Produit(unsigned int no, const std::string nom, double prix);
     Produit& operator+=(double rhs);
     Produit& operator-=(double rhs);
     Produit& operator*=(double rhs);
     Produit& operator/=(double rhs);
+
+    unsigned int getNo() const;
+    const std::string& getNom() const;
+    double getPrix() const;
+    
+    void setNo(unsigned int no);
+    void setNom(const std::string& nom);
+    void setPrix(double prix);
 
 private:
 

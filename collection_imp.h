@@ -1,12 +1,26 @@
 #include <vector>
 #include <list>
+#include <algorithm>
+
+template<typename T, template<typename, typename> class Conteneur>
+std::ostream& operator << (std::ostream& os, const Collection<T, Conteneur>& collection) {
+	os << "[";
+
+	for(auto i = collection.cont.begin(); i != collection.cont.end(); ++i) {
+		os << *i;
+			os << ",";	
+	}
+
+	os << "]";
+	return os;
+}
 
 template <typename T, template<typename, typename> class Conteneur>
 Collection<T, Conteneur>::Collection(){
 }
 
 template <typename T, template<typename, typename> class Conteneur>
-void Collection<T, Conteneur>::ajouter(T& valeur){
+void Collection<T, Conteneur>::ajouter(T valeur){
 	cont.push_back(T(valeur));
 }
 
@@ -27,12 +41,13 @@ T& Collection<T, CONTENEUR>::get(size_t indice){
     return *b;
 }
 
-template<typename T, template<typename, typename> class Conteneur>
-void Collection<T,Conteneur>::parcourir(T predicat) {
-	for(auto i = cont.begin(); i != cont.end(); ++i) {
-		predicat(*i);
-	}
+template<typename T,template<typename, typename> class Conteneur>
+template<typename F>
+Collection<T, Conteneur>& Collection<T,Conteneur>::parcourir(const F& predicat) {
+	std::for_each(cont.begin(), cont.end(), predicat);
+	return *this;
 }
+
 
 template <typename T, template<typename,typename> class Conteneur>
 bool Collection<T,Conteneur>::contient(T valeur) {
@@ -42,17 +57,4 @@ bool Collection<T,Conteneur>::contient(T valeur) {
 		}
 	}
 	return false;
-}
-
-
-template<typename T, template<typename, typename> class Conteneur>
-std::ostream& operator << (std::ostream& os, const Collection<T, Conteneur>& collection) {
-	os << "[";
-
-	for(auto i = collection.cont.begin(); i != collection.cont.end(); ++i) {
-		os << *i << ",";
-	}
-
-	os << "]";
-	return os;
 }
