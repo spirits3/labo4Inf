@@ -10,8 +10,8 @@
 			   - ajouter   : permet d'ajouter un element de type Conteneur
 			   - vider     : permet de vider le conteneur
 			   - taille    : permet de connaitre la taille du conteneur
-			   - get	   : permet de prendre l'élement a une position choisie dans
-			                 le conteneur
+			   - get	   : permet de prendre l'élement a une position choisie 
+			   				 dans le conteneur
 			   - parcourir : permet de faire le même traitement à un element du 
 			   				 conteneur
 			   - contient  : permet de voir si le conteneur contient tel element
@@ -25,10 +25,7 @@
 #ifndef COLLECTION_H
 #define COLLECTION_H
 
-#include <cstdlib>
 #include <iostream>
-
-using namespace std;
 
 template <typename T, template <typename, typename> class Conteneur>
 class Collection;
@@ -43,7 +40,7 @@ class Collection {
 public:
     Collection();
     Collection& ajouter(const T&);
-    Collection& vider();
+    void vider();
     size_t taille() const;
     T& get(size_t indice);
 
@@ -52,7 +49,7 @@ public:
     bool contient(T);
 
 private:
-    Conteneur<T, allocator<T>> cont;
+    Conteneur<T, std::allocator<T>> cont;
 };
 
 #include "collection_imp.h"
