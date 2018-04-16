@@ -1,17 +1,44 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : collection_imp.h
+ Auteur(s)   : Basile Botebol, Schaufelberger Florian, Nicodème Stalder
+ Date        : 10.04.2018
+
+ But         : Definition de la classe Collection avec :
+			   - surcharge de l'opérateur <<
+			   - ajouter   : permet d'ajouter un element de type Conteneur
+			   - vider     : permet de vider le conteneur
+			   - taille    : permet de connaitre la taille du conteneur
+			   - get	   : permet de prendre l'élement a une position choisie dans
+			                 le conteneur
+			   - parcourir : permet de faire le même traitement à un element du 
+			   				 conteneur
+			   - contient  : permet de voir si le conteneur contient tel element
+
+ Remarque(s) : Pas d'accesseur fait par rapport au conteneur
+
+ Compilateur : MinGW-g++ 6.3.0
+ -----------------------------------------------------------------------------------
+ */
+
 #include <vector>
 #include <list>
 #include <algorithm>
+#include <iostream>
+#include <iomanip>
 
 template<typename T, template<typename, typename> class Conteneur>
 std::ostream& operator << (std::ostream& os, const Collection<T, Conteneur>& collection) {
-	os << "[";
+	
 
-	for(auto i = collection.cont.begin(); i != collection.cont.end(); ++i) {
-		os << *i;
-			os << ",";	
+	os << fixed << setprecision(2) << "[";
+
+	for(auto i = collection.cont.begin(); i != --collection.cont.end(); ++i) {
+		os << *i << ", ";	
 	}
-
-	os << "]";
+	os << *--collection.cont.end()
+	   << "]";
 	return os;
 }
 
@@ -20,13 +47,15 @@ Collection<T, Conteneur>::Collection(){
 }
 
 template <typename T, template<typename, typename> class Conteneur>
-void Collection<T, Conteneur>::ajouter(T valeur){
+Collection<T, Conteneur>& Collection<T, Conteneur>::ajouter(const T& valeur){
 	cont.push_back(T(valeur));
+	return *this;
 }
 
 template <typename T, template<typename, typename> class Conteneur>
-void Collection<T, Conteneur>::vider(){
-    cont.empty();
+Collection<T, Conteneur>& Collection<T, Conteneur>::vider(){
+    cont.clear();
+    return *this;
 }
 
 template <typename T, template<typename, typename> class Conteneur>

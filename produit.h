@@ -1,24 +1,24 @@
 /*
  -----------------------------------------------------------------------------------
  Laboratoire : 04
- Fichier     : Produit.h
+ Fichier     : produit.h
  Auteur(s)   : Basile Botebol, Schaufelberger Florian, Nicodème Stalder
  Date        : 10.04.2018
 
  But         : Déclaration de la classe Produit qui contient : 
- * - un champs privé no de type unsigned int, le numero du produit
- * - un champs privé nom, de type string, le nom du produit
- * - un champs privé prix de type double, le prix du produit
- * - un constructeur (publique) à trois paramètres qui initialise dans cet ordre 
- le no, le nom et le prix 
- * - les surcharges d'opérateur (publiques) -=, +=, *= et /= avec un double
- qui modifie le prix du produit 
- * - les fonctions amies de surcharge d'opérateur +, -, * et / avec un double qui 
- modifient également seulement le prix
- * - les fonction amies de surcharge d'opérateur == et =!, qui comparent strictement
- champs à champs les deux objets.
+               - un champs privé no de type unsigned int, le numero du produit
+               - un champs privé nom, de type string, le nom du produit
+               - un champs privé prix de type double, le prix du produit
+               - un constructeur (publique) à trois paramètres qui initialise dans 
+                 cet ordre le no, le nom et le prix 
+               - les surcharges d'opérateur (publiques) -=, +=, *= et /= avec un double
+                 modifie le prix du produit 
+               - les fonctions amies de surcharge d'opérateur +, -, * et / avec un double qui 
+                 modifient également seulement le prix
+               - les fonction amies de surcharge d'opérateur == et =!, 
+                 qui comparent strictementchamps à champs les deux objets.
 
- Remarque(s) : certaines surcharges d'opérateu sont peut être superflues, mais 
+ Remarque(s) : certaines surcharges d'opérateurs sont peut être superflues, mais 
  néanmoins implémentées, en prévision de la suite
 
  Compilateur : MinGW-g++ 6.3.0
